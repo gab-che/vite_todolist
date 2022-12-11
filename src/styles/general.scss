@@ -1,4 +1,8 @@
 @use './partials/utilities' as *;
 @use './partials/variables' as *;
-
+// @use "@fortawesome/fontawesome-free/css/all.min.css";
 @import 'bootstrap/scss/bootstrap';
+
+p{
+    margin-bottom: 0;
+}
