@@ -1,17 +1,19 @@
-<template>
-    <header>
-        <h1>{{title}}</h1>
-    </header>
-</template>
-
 <script>
+    import TheButton from './TheButton.vue';
     export default{
         props: {
             title: String,
         },
-        components: {},
+        components: { TheButton },
     }
 </script>
+
+<template>
+    <header>
+        <h1>{{title}}</h1>
+        <TheButton text="Add Task" color="green"></TheButton>
+    </header>
+</template>
 
 <style scoped lang="scss">
     @use '../styles/partials/utilities' as *;
