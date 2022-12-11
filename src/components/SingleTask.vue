@@ -7,8 +7,10 @@
 </script>
 
 <template>
-    <div class="single_task">
-        <h4>{{task.text}}</h4>
+    <div :class="[task.reminder ? 'reminder' : '', 'single_task']">
+        <h4>{{task.text}}
+            <i class="fa-solid fa-xmark"></i>
+        </h4>
         <p>{{task.day}}</p>
     </div>
 </template>
@@ -29,6 +31,10 @@
 
         h4{
             @include flex_between;
+
+            i{
+                color: red;
+            }
         }
     }
 
