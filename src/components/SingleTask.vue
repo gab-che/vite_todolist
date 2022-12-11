@@ -2,14 +2,19 @@
     export default{
         props: {
             task: Object,
-        }
+        },
+
+        emits:['delete-task', 'toggle-reminder'],
     }
 </script>
 
 <template>
-    <div :class="[task.reminder ? 'reminder' : '', 'single_task']">
+    <div :class="[task.reminder ? 'reminder' : '', 'single_task']"
+        @dblclick="$emit('toggle-reminder', task.id)">
         <h4>{{task.text}}
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark"
+                @click="$emit('delete-task', task.id)">
+            </i>
         </h4>
         <p>{{task.day}}</p>
     </div>
@@ -23,7 +28,6 @@
         background-color: $color_primary;
         margin: 5px;
         padding: calc($standard_spacer / 2) $standard_spacer;
-        cursor: pointer;
 
         &.reminder{
             border-left: 5px solid green;
@@ -34,6 +38,7 @@
 
             i{
                 color: red;
+                cursor: pointer;
             }
         }
     }
